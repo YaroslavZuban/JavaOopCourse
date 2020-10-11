@@ -6,7 +6,7 @@ public class RangeProgram {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-       Range rangeInterval = new Range(2.36, 9.75);
+        Range rangeInterval = new Range(2.36, 9.75);
         rangeInterval.print();
 
         System.out.print("Введите: ");
@@ -14,98 +14,95 @@ public class RangeProgram {
 
         System.out.println("Пренадлежит ли чилу интервалу: " + rangeInterval.isInside(number1));
 
-        //разность
         System.out.println("  _Разность_");
-        Range r1 = new Range(2, 4);
-        r1.print();
 
-        Range r2 = new Range(3, 4);
-        r2.print();
+        Range differenceInterval1 = new Range(2, 4);
+        differenceInterval1.print();
 
-        Range[] array6 = r1.gettingIntervalsDifferences(r2);
+        Range differenceInterval2 = new Range(3, 4);
+        differenceInterval2.print();
 
-        if (array6 == null) {
+        Range[] arrayDifferenceIntervals = differenceInterval1.gettingIntervalsDifferences(differenceInterval2);
+
+        if (arrayDifferenceIntervals == null) {
             System.out.println("Итоговый интервал равен: " + null);
         } else {
-            Range r3 = new Range(array6[0].getFrom(),array6[0].getTo());
-            r3.printFinalInterval();
+            Range resultingDifference1 = new Range(arrayDifferenceIntervals[0].getFrom(), arrayDifferenceIntervals[0].getTo());
+            resultingDifference1.printFinalInterval();
 
-            if (array6.length <= 1) {
+            if (arrayDifferenceIntervals.length <= 1) {
 
                 System.out.print("Введите: ");
                 double number2 = scanner.nextDouble();
 
-                System.out.println("Пренадлежит ли заданному интервалу: " + r3.isInside(number2));
+                System.out.println("Пренадлежит ли заданному интервалу: " + resultingDifference1.isInside(number2));
             } else {
-                Range r9 = new Range(array6[1].getFrom(),array6[1].getTo());
-                r9.printFinalInterval();
+                Range resultingDifference2 = new Range(arrayDifferenceIntervals[1].getFrom(), arrayDifferenceIntervals[1].getTo());
+                resultingDifference2.printFinalInterval();
 
                 System.out.print("Введите: ");
                 double number2 = scanner.nextDouble();
 
-                if (r3.isInside(number2)) {
-                    System.out.println("Пренадлежит ли заданному интервалу: " + r3.isInside(number2));
+                if (resultingDifference1.isInside(number2)) {
+                    System.out.println("Пренадлежит ли заданному интервалу: " + resultingDifference1.isInside(number2));
                 } else {
-                    System.out.println("Пренадлежит ли заданному интервалу: " + r9.isInside(number2));
+                    System.out.println("Пренадлежит ли заданному интервалу: " + resultingDifference2.isInside(number2));
                 }
             }
         }
-        
+
         System.out.println("  _Обьединение_");
 
-        Range r4= new Range(2, 4);
-        r4.print();
+        Range UnionInterval1 = new Range(2, 4);
+        UnionInterval1.print();
 
-        Range r5 = new Range(5, 6);
-        r5.print();
+        Range UnionInterval2 = new Range(5, 6);
+        UnionInterval2.print();
 
-        Range[] array=r4.gettingIntervalsUnion(r5);
+        Range[] arrayUnionIntervals = UnionInterval1.gettingIntervalsUnion(UnionInterval2);
 
-        Range r6 = new Range(array[0].getFrom(),array[0].getTo());
-        r6.printFinalInterval();
+        Range resultingUnion1 = new Range(arrayUnionIntervals[0].getFrom(), arrayUnionIntervals[0].getTo());
+        resultingUnion1.printFinalInterval();
 
-        if (array.length<=1) {
+        if (arrayUnionIntervals.length <= 1) {
             System.out.print("Введите: ");
             double number3 = scanner.nextDouble();
 
-            System.out.println("Пренадлежит ли заданному интервалу: " + r6.isInside(number3));
-        }else {
-            Range r7 = new Range(array[1].getFrom(),array[1].getTo());
-            r7.printFinalInterval();
+            System.out.println("Пренадлежит ли заданному интервалу: " + resultingUnion1.isInside(number3));
+        } else {
+            Range resultingUnion2 = new Range(arrayUnionIntervals[1].getFrom(), arrayUnionIntervals[1].getTo());
+            resultingUnion2.printFinalInterval();
 
             System.out.print("Введите: ");
             double number3 = scanner.nextDouble();
 
-            if (r6.isInside(number3)) {
-                System.out.println("Пренадлежит ли заданному интервалу: " + r6.isInside(number3));
-            }else{
-                System.out.println("Пренадлежит ли заданному интервалу: " + r7.isInside(number3));
+            if (resultingUnion1.isInside(number3)) {
+                System.out.println("Пренадлежит ли заданному интервалу: " + resultingUnion1.isInside(number3));
+            } else {
+                System.out.println("Пренадлежит ли заданному интервалу: " + resultingUnion2.isInside(number3));
             }
         }
 
-
-        //пересечение
-
         System.out.println("  _Пересечение_");
 
-        Range r10 = new Range(2, 4);
-        r10.print();
+        Range CrossingInterval1 = new Range(2, 4);
+        CrossingInterval1.print();
 
-        Range r8 = new Range(5, 6);
-        r8.print();
+        Range CrossingInterval2 = new Range(5, 6);
+        CrossingInterval2.print();
 
-        Range[] array3=r10.gettingIntervalsCrossing(r8);
+        Range[] arrayCrossingIntervals = CrossingInterval1.gettingIntervalsCrossing(CrossingInterval2);
 
-        if (array3==null) {
-        System.out.println("Интервал равен: "+ null);
-        }else{
-            Range r11 = new Range(array3[0], array3[1]);
-            r11.printFinalInterval();
+        if (arrayCrossingIntervals == null) {
+            System.out.println("Интервал равен: " + null);
+        } else {
+            Range resultingCrossing2 = new Range(arrayCrossingIntervals[0], arrayCrossingIntervals[1]);
+            resultingCrossing2.printFinalInterval();
 
             System.out.print("Введите: ");
-            double number4= scanner.nextDouble();
+            double number4 = scanner.nextDouble();
 
-            System.out.println("Пренадлежит ли заданному интервалу: " + r11.isInside(number4));
+            System.out.println("Пренадлежит ли заданному интервалу: " + resultingCrossing2.isInside(number4));
         }
     }
 }
