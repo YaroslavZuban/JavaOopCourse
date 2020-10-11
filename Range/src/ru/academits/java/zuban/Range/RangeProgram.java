@@ -14,7 +14,7 @@ public class RangeProgram {
 
         System.out.println("Пренадлежит ли чилу интервалу: " + rangeInterval.isInside(number1));
 
-        System.out.println("  _Разность_");
+        System.out.println("_Разность_");
 
         Range differenceInterval1 = new Range(2, 4);
         differenceInterval1.print();
@@ -51,7 +51,7 @@ public class RangeProgram {
             }
         }
 
-        System.out.println("  _Обьединение_");
+        System.out.println("_Обьединение_");
 
         Range UnionInterval1 = new Range(2, 4);
         UnionInterval1.print();
@@ -83,7 +83,7 @@ public class RangeProgram {
             }
         }
 
-        System.out.println("  _Пересечение_");
+        System.out.println("_Пересечение_");
 
         Range CrossingInterval1 = new Range(2, 4);
         CrossingInterval1.print();
