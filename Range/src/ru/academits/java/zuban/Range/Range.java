@@ -9,10 +9,6 @@ class Range {
         this.to = to;
     }
 
-    public Range(Range range, Range range1) {
-
-    }
-
     public void print() {
         System.out.println("Интервал равен: ");
         System.out.println("От: " + from);
@@ -41,7 +37,7 @@ class Range {
         this.to = to;
     }
 
-    public double findingLength() {
+    public double getLength() {
         return to - from;
     }
 

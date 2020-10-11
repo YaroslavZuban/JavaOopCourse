@@ -9,6 +9,8 @@ public class RangeProgram {
         Range rangeInterval = new Range(2.36, 9.75);
         rangeInterval.print();
 
+        System.out.println("Длинна интервала равна: " + rangeInterval.getLength());
+
         System.out.print("Введите: ");
         double number1 = scanner.nextDouble();
 
@@ -96,7 +98,7 @@ public class RangeProgram {
         if (arrayCrossingIntervals == null) {
             System.out.println("Интервал равен: " + null);
         } else {
-            Range resultingCrossing2 = new Range(arrayCrossingIntervals[0], arrayCrossingIntervals[1]);
+            Range resultingCrossing2 = new Range(arrayCrossingIntervals[0].getFrom(), arrayCrossingIntervals[0].getTo());
             resultingCrossing2.printFinalInterval();
 
             System.out.print("Введите: ");
