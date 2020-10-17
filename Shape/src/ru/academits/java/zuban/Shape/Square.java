@@ -19,7 +19,7 @@ class Square implements Shape {
         return width;
     }
 
-    public double getHeight(){
+    public double getHeight() {
         return 0;
     }
 }
