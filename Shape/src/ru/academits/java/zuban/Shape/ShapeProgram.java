@@ -20,15 +20,14 @@ public class ShapeProgram {
     }
 
     public static double searchArea(Shape[] shape) {
-        double maxArea = shape[0].getArea();
+        double[] array = new double[shape.length];
 
-        for (int i = 1; i < shape.length; i++) {
-            if (maxArea < shape[i].getArea()) {
-                maxArea = shape[i].getArea();
-            }
+        for (int i = 0; i < shape.length; i++) {
+            array[i] = shape[i].getArea();
         }
 
-        return maxArea;
+        Arrays.sort(array);
+        return array[array.length-1];
     }
 
     public static double searchPerimeter(Shape[] shape) {
@@ -39,7 +38,7 @@ public class ShapeProgram {
         }
 
         Arrays.sort(array);
-        return array[1];
+        return array[array.length-2];
     }
 
     public static void conclusionInformationShape(Shape[] shape, double number) {

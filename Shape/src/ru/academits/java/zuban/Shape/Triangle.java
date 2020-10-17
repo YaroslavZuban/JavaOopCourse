@@ -17,7 +17,6 @@ class Triangle implements Shape {
         this.y3 = y3;
     }
 
-    @Override
     public double getWidth() {
         double[] array = {x1, x2, x3};
         double min = array[0];
@@ -36,7 +35,6 @@ class Triangle implements Shape {
         return max - min;
     }
 
-    @Override
     public double getHeight() {
         double[] array = {y1, y2, y3};
         double min = array[0];
@@ -71,7 +69,6 @@ class Triangle implements Shape {
         }
     }
 
-    @Override
     public double getArea() {
         double[] array = searchTriangleSides();
 
@@ -83,7 +80,6 @@ class Triangle implements Shape {
         return 0;
     }
 
-    @Override
     public double getPerimeter() {
         double[] array = searchTriangleSides();
 
