@@ -1,6 +1,6 @@
 package ru.academits.java.zuban.Shape;
 
-interface Shape {
+interface Shape  {
     double getWidth();
 
     double getHeight();
@@ -8,4 +8,5 @@ interface Shape {
     double getArea();
 
     double getPerimeter();
+
 }

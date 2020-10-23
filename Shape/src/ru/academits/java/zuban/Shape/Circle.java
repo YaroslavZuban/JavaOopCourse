@@ -1,6 +1,6 @@
 package ru.academits.java.zuban.Shape;
 
-class Circle implements Shape {
+class Circle implements Shape{
     private final double radius;
 
     Circle(double radius) {
