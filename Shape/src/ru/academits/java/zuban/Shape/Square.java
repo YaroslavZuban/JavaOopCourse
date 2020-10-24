@@ -1,5 +1,7 @@
 package ru.academits.java.zuban.Shape;
 
+import java.util.Objects;
+
 class Square implements Shape {
     private final double width;
 
@@ -21,5 +23,25 @@ class Square implements Shape {
 
     public double getHeight() {
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Square square = (Square) o;
+        return Double.compare(square.width, width) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(width);
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "width=" + width +
+                '}';
     }
 }

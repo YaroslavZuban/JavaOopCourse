@@ -24,6 +24,7 @@ public class ShapeProgram {
                 return (int) (o1.getArea()-o2.getArea());
             }
         });
+
         System.out.println("Информация о фигуре: ");
         System.out.println("Длина фигуры равна: " +shape[shape.length-1].getHeight());
         System.out.println("Ширина фигуры равна: " + shape[shape.length-1].getWidth());
@@ -38,6 +39,7 @@ public class ShapeProgram {
                 return (int) (o1.getPerimeter()-o2.getPerimeter());
             }
         });
+
         System.out.println("Информация о фигуре: ");
         System.out.println("Длина фигуры равна: " +shape[shape.length-2].getHeight());
         System.out.println("Ширина фигуры равна: " + shape[shape.length-2].getWidth());
