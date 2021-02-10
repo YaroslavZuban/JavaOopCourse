@@ -24,7 +24,7 @@ public class RangeProgram {
         Range differenceInterval2 = new Range(3, 4);
         differenceInterval2.print();
 
-        Range[] arrayDifferenceIntervals = differenceInterval1.gettingIntervalsDifferences(differenceInterval2);
+        Range[] arrayDifferenceIntervals = differenceInterval1.getDifferences(differenceInterval2);
 
         if (arrayDifferenceIntervals == null) {
             System.out.println("Итоговый интервал равен: " + null);
@@ -61,7 +61,7 @@ public class RangeProgram {
         Range UnionInterval2 = new Range(5, 6);
         UnionInterval2.print();
 
-        Range[] arrayUnionIntervals = UnionInterval1.gettingIntervalsUnion(UnionInterval2);
+        Range[] arrayUnionIntervals = UnionInterval1.getUnion(UnionInterval2);
 
         Range resultingUnion1 = new Range(arrayUnionIntervals[0].getFrom(), arrayUnionIntervals[0].getTo());
         resultingUnion1.printFinalInterval();
@@ -93,7 +93,7 @@ public class RangeProgram {
         Range CrossingInterval2 = new Range(5, 6);
         CrossingInterval2.print();
 
-        Range[] arrayCrossingIntervals = CrossingInterval1.gettingIntervalsCrossing(CrossingInterval2);
+        Range[] arrayCrossingIntervals = CrossingInterval1.getCrossing(CrossingInterval2);
 
         if (arrayCrossingIntervals == null) {
             System.out.println("Интервал равен: " + null);

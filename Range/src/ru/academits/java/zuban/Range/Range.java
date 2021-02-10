@@ -42,14 +42,14 @@ class Range {
     }
 
     public boolean isInside(double number) {
-        if (from < number && number < to) {
+        if (from <= number && number <= to) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
-    public Range[] gettingIntervalsCrossing(Range range) {//пересечение
+    public Range[] getCrossing(Range range) {//пересечение
         if (from < range.from && to < range.to && range.from < to) {
             return new Range[]{new Range(range.from, to)};
         } else if (from > range.from && to > range.to && from < range.to) {
@@ -63,7 +63,7 @@ class Range {
         return null;
     }
 
-    public Range[] gettingIntervalsUnion(Range range) {//обьединение
+    public Range[] getUnion(Range range) {//обьединение
         if (from >= range.from && to >= range.to && from <= range.to) {
             return new Range[]{new Range(range.from, to)};
         } else if (from <= range.from && to <= range.to && to >= range.from) {
@@ -77,14 +77,14 @@ class Range {
         }
     }
 
-    public Range[] gettingIntervalsDifferences(Range range) {//разность
+    public Range[] getDifferences(Range range) {//разность
         if (from > range.from && to > range.to && from < range.to) {
             return new Range[]{new Range(range.to, to)};
         } else if (from < range.from && to < range.to && to > range.from) {
             return new Range[]{new Range(from, range.from)};
         } else if (from <= range.from && to >= range.to) {
             if (to == range.to && range.from == from) {
-                return null;
+                return new Range[]{new Range(0,0)};
             } else {
                 return new Range[]{new Range(from, range.from)};
             }

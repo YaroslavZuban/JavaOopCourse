@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaOopCourse.iml" filepath="$PROJECT_DIR$/.idea/JavaOopCourse.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Range/Range.iml" filepath="$PROJECT_DIR$/Range/Range.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Shape/Shape.iml" filepath="$PROJECT_DIR$/Shape/Shape.iml" />
+      <module fileurl="file://$PROJECT_DIR$/range/Range.iml" filepath="$PROJECT_DIR$/range/Range.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shape/Shape.iml" filepath="$PROJECT_DIR$/shape/Shape.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vector/Vector.iml" filepath="$PROJECT_DIR$/vector/Vector.iml" />
     </modules>
   </component>
 </project>
