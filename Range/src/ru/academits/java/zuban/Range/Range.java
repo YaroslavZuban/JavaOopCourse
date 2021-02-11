@@ -10,15 +10,13 @@ class Range {
     }
 
     public void print() {
-        System.out.println("Интервал равен: ");
-        System.out.println("От: " + from);
-        System.out.println("До: " + to);
+        System.out.print("Интервал равен: ");
+        System.out.println("("+from+"; "+to+") ");
     }
 
     public void printFinalInterval() {
-        System.out.println("Итоговый интервал равен: ");
-        System.out.println("От: " + from);
-        System.out.println("До: " + to);
+        System.out.print("Итоговый интервал равен: ");
+        System.out.println("("+from+"; "+to+") ");
     }
 
     public double getFrom() {
@@ -49,7 +47,7 @@ class Range {
         return false;
     }
 
-    public Range[] getCrossing(Range range) {//пересечение
+    public Range[] getIntersection(Range range) {//пересечение
         if (from < range.from && to < range.to && range.from < to) {
             return new Range[]{new Range(range.from, to)};
         } else if (from > range.from && to > range.to && from < range.to) {
@@ -84,7 +82,7 @@ class Range {
             return new Range[]{new Range(from, range.from)};
         } else if (from <= range.from && to >= range.to) {
             if (to == range.to && range.from == from) {
-                return new Range[]{new Range(0,0)};
+                return null;
             } else {
                 return new Range[]{new Range(from, range.from)};
             }

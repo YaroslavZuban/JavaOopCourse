@@ -2,7 +2,7 @@ package ru.academits.java.zuban.Shape;
 
 import java.util.Objects;
 
-class Triangle implements Shape {
+public class Triangle implements Shape {
     private final double x1;
     private final double y1;
     private final double x2;
@@ -10,7 +10,7 @@ class Triangle implements Shape {
     private final double x3;
     private final double y3;
 
-    Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+    public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -87,6 +87,7 @@ class Triangle implements Shape {
 
         if (array != null) {
             double perimeter = 0;
+
             for (double e : array) {
                 perimeter = +e;
             }
@@ -100,7 +101,10 @@ class Triangle implements Shape {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Triangle triangle = (Triangle) o;
         return Double.compare(triangle.x1, x1) == 0 &&
                 Double.compare(triangle.y1, y1) == 0 &&

@@ -2,10 +2,10 @@ package ru.academits.java.zuban.Shape;
 
 import java.util.Objects;
 
-class Circle implements Shape{
+public class Circle implements Shape {
     private final double radius;
 
-    Circle(double radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
@@ -39,10 +39,7 @@ class Circle implements Shape{
     }
 
     @Override
-    public String
-    toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                '}';
+    public String toString() {
+        return "Circle{" + "radius=" + radius + '}';
     }
 }

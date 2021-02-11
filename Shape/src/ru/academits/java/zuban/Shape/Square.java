@@ -2,10 +2,10 @@ package ru.academits.java.zuban.Shape;
 
 import java.util.Objects;
 
-class Square implements Shape {
+public class Square implements Shape {
     private final double width;
 
-    Square(double width) {
+   public Square(double width) {
         this.width = width;
     }
 
