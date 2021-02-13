@@ -6,8 +6,6 @@ public class Vector {
     private int size;
     private double[] vector;
 
-
-
     Vector(int n) {//размерность n, все компоненты равны 0
         if (n <= 0) {
             doRisky();
@@ -24,13 +22,19 @@ public class Vector {
     Vector(Vector vectorCopy) {//конструктор копирования
         this.size = vectorCopy.getSize();
         vector = new double[size];
-        this.vector = Arrays.copyOf(vectorCopy.getVector(), size);
+
+        for (int i = 0; i < size; i++) {
+            this.vector[i] = vectorCopy.getComponents(i);
+        }
     }
 
     Vector(double[] array) {//заполнение вектора значениями из массив
         this.size = array.length;
         vector = new double[size];
-        this.vector = Arrays.copyOf(array, size);
+
+        for (int i = 0; i < size; i++) {
+            this.vector[i] = array[i];
+        }
     }
 
     Vector(int n, double[] array) {//заполнение вектора значениями из массива. Если длина массива меньше n, то считать что в остальных компонентах 0
@@ -39,14 +43,22 @@ public class Vector {
         }
 
         this.size = array.length;
-        vector = new double[size];
 
-        for (int i = 0; i < n; i++) {
-            if (array.length > n) {
-                this.vector[i] = 0;
+        if (n > array.length) {
+            vector = new double[n];
+            for (int i = 0; i < n; i++) {
+                if (array.length > i) {
+                    this.vector[i] = array[i];
+                } else {
+                    this.vector[i] = 0;
+                }
             }
+        } else {
+            vector = new double[array.length];
 
-            this.vector[i] = array[i];
+            for (int i = 0; i < array.length; i++) {
+                this.vector[i] = array[i];
+            }
         }
     }
 
@@ -90,74 +102,50 @@ public class Vector {
         return result;
     }
 
-    public double[] addition(Vector vec) {//сложение
+    public Vector addition(Vector vec) {//сложение
         int indexMax = Math.max(getSize(), vec.getSize());
-        int indexMin = Math.min(getSize(), vec.getSize());
+        Vector number;
 
-        double[] array = new double[indexMax];
-
-        if (getSize() == indexMax) {
-            for (int i = 0; i < indexMax; i++) {
-                if (i < indexMin) {
-                    array[i] = vector[i];
-                } else {
-                    array[i] = 0;
-                }
-            }
+        if (vec.getSize() >= getSize()) {
+            number = new Vector(indexMax, getVector());
 
             for (int i = 0; i < indexMax; i++) {
-                array[i] += vec.getComponents(i);
+                double sum = number.getComponents(i) + vec.getComponents(i);
+                number.setComponents(i, sum);
             }
         } else {
-            for (int i = 0; i < indexMax; i++) {
-                if (i < indexMin) {
-                    array[i] = vec.getComponents(i);
-                } else {
-                    array[i] = 0;
-                }
-            }
+            number = new Vector(indexMax, vec.getVector());
 
             for (int i = 0; i < indexMax; i++) {
-                array[i] += vector[i];
+                double sum = number.getComponents(i) + getComponents(i);
+                number.setComponents(i, sum);
             }
         }
 
-        return array;
+        return number;
     }
 
-    public double[] subtraction(Vector vec) {//вычитание
+    public Vector subtraction(Vector vec) {//вычитание
         int indexMax = Math.max(getSize(), vec.getSize());
-        int indexMin = Math.min(getSize(), vec.getSize());
+        Vector number;
 
-        double[] array = new double[indexMax];
-
-        if (getSize() == indexMax) {
-            for (int i = 0; i < indexMax; i++) {
-                if (i < indexMin) {
-                    array[i] = vector[i];
-                } else {
-                    array[i] = 0;
-                }
-            }
+        if (vec.getSize() >= getSize()) {
+            number = new Vector(indexMax, getVector());
 
             for (int i = 0; i < indexMax; i++) {
-                array[i] -= vec.getComponents(i);
+                double sum = number.getComponents(i) - vec.getComponents(i);
+                number.setComponents(i, sum);
             }
         } else {
-            for (int i = 0; i < indexMax; i++) {
-                if (i < indexMin) {
-                    array[i] = vec.getComponents(i);
-                } else {
-                    array[i] = 0;
-                }
-            }
+            number = new Vector(indexMax, vec.getVector());
 
             for (int i = 0; i < indexMax; i++) {
-                array[i] -= vector[i];
+                double sum = number.getComponents(i) - getComponents(i);
+                number.setComponents(i, sum);
             }
         }
 
-        return array;
+        return number;
     }
 
 
@@ -189,7 +177,7 @@ public class Vector {
         return vector[index];
     }
 
-    public void setComponents(int index, int number) {//установка нового числа по индексу
+    public void setComponents(int index, double number) {//установка нового числа по индексу
         this.vector[index] = number;
     }
 
@@ -237,5 +225,19 @@ public class Vector {
 
 
         return new Vector(array);
+    }
+
+    private double[] arrayPlusNull(int size) {
+        double[] arrayNew = new double[size];
+
+        for (int i = 0; i < size; i++) {
+            if (i < vector.length) {
+                arrayNew[i] = vector[i];
+            } else {
+                arrayNew[i] = 0;
+            }
+        }
+
+        return arrayNew;
     }
 }
