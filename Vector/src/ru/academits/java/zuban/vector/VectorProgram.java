@@ -15,7 +15,7 @@ public class VectorProgram {
         try {
             Vector vector1 = new Vector(-2);
         } catch (IllegalArgumentException ex) {
-            System.out.println("Ошибка произошла! Поздравляю! ");
+            System.out.println("Ошибка произошла! Поздравляю! Привет");
         } finally {
             System.out.println();
         }

@@ -32,9 +32,7 @@ public class Vector {
         this.size = array.length;
         vector = new double[size];
 
-        for (int i = 0; i < size; i++) {
-            this.vector[i] = array[i];
-        }
+        System.arraycopy(array, 0, this.vector, 0, size);
     }
 
     Vector(int n, double[] array) {//заполнение вектора значениями из массива. Если длина массива меньше n, то считать что в остальных компонентах 0
@@ -49,6 +47,7 @@ public class Vector {
             for (int i = 0; i < n; i++) {
                 if (array.length > i) {
                     this.vector[i] = array[i];
+
                 } else {
                     this.vector[i] = 0;
                 }
@@ -56,9 +55,7 @@ public class Vector {
         } else {
             vector = new double[array.length];
 
-            for (int i = 0; i < array.length; i++) {
-                this.vector[i] = array[i];
-            }
+            System.arraycopy(array, 0, this.vector, 0, array.length);
         }
     }
 
