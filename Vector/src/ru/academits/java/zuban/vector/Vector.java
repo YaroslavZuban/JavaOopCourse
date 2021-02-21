@@ -6,17 +6,11 @@ public class Vector {
     private int size;
     private double[] vector;
 
-    Vector(int n) {//размерность n, все компоненты равны 0
-        if (n <= 0) {
-            doRisky();
-        }
+    Vector(int n) {//размерность n, все компоненты равны  0
+        doRisky(n);
 
         vector = new double[n];
         this.size = n;
-
-        for (int i = 0; i < size; i++) {
-            this.vector[i] = 0;
-        }
     }
 
     Vector(Vector vectorCopy) {//конструктор копирования
@@ -36,9 +30,7 @@ public class Vector {
     }
 
     Vector(int n, double[] array) {//заполнение вектора значениями из массива. Если длина массива меньше n, то считать что в остальных компонентах 0
-        if (n <= 0) {
-            doRisky();
-        }
+        doRisky(n);
 
         this.size = array.length;
 
@@ -53,12 +45,10 @@ public class Vector {
                 }
             }
         } else {
-            vector = new double[array.length];
-
-            System.arraycopy(array, 0, this.vector, 0, array.length);
+            vector = new double[n];
+            System.arraycopy(array, 0, this.vector, 0, n);
         }
     }
-
 
     public double[] getVector() {//выдает массив, для копирования
         return vector;
@@ -68,8 +58,10 @@ public class Vector {
         return vector.length;
     }
 
-    private void doRisky() throws IllegalArgumentException {//ввывод ошибки, решил перенести в отдельную функцию чтобы не дублировать код
-        throw new IllegalArgumentException("Размерность меньше нуля! ");
+    private void doRisky(int n) throws IllegalArgumentException {//ввывод ошибки, решил перенести в отдельную функцию чтобы не дублировать код
+        if (n <= 0) {
+            throw new IllegalArgumentException("Размерность меньше нуля! ");
+        }
     }
 
     @Override
@@ -156,8 +148,6 @@ public class Vector {
         for (int i = 0; i < vector.length; i++) {
             this.vector[i] *= -1;
         }
-
-        Arrays.sort(this.vector);
     }
 
     public double getLength() {//получение длинный вектора
@@ -194,7 +184,7 @@ public class Vector {
 
         double[] array = new double[indexMax];
 
-        if (vec1.getSize() == indexMax) {
+        if (vec1.getSize() == indexMax && vec1.getSize() != indexMin) {
             for (int i = 0; i < indexMax; i++) {
                 if (i < indexMin) {
                     array[i] = vec1.vector[i];
@@ -206,7 +196,7 @@ public class Vector {
             for (int i = 0; i < indexMax; i++) {
                 array[i] *= vec2.getComponents(i);
             }
-        } else {
+        } else if (vec2.getSize() == indexMax && vec2.getSize() != indexMin) {
             for (int i = 0; i < indexMax; i++) {
                 if (i < indexMin) {
                     array[i] = vec2.getComponents(i);
@@ -218,8 +208,11 @@ public class Vector {
             for (int i = 0; i < indexMax; i++) {
                 array[i] *= vec1.vector[i];
             }
+        } else {
+            for (int i = 0; i < indexMax; i++) {
+                array[i] = vec1.vector[i] * vec2.vector[i];
+            }
         }
-
 
         return new Vector(array);
     }
@@ -238,4 +231,3 @@ public class Vector {
         return arrayNew;
     }
 }
-

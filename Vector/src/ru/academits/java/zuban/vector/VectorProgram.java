@@ -17,7 +17,7 @@ public class VectorProgram {
         } catch (IllegalArgumentException ex) {
             System.out.println("Ошибка произошла! Поздравляю! Привет");
         } finally {
-            System.out.println();
+            System.out.println("Данная операция в любом случаи произойдет!");
         }
 
         System.out.println("Программа _3_: ");
