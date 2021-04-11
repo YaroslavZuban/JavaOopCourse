@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Vector {
     private int size;
+
     private double[] vector;
 
     Vector(int n) {//размерность n, все компоненты равны  0

@@ -13,6 +13,7 @@ public class VectorProgram {
 
         System.out.println("Программа _2_: ");
         try {
+
             Vector vector1 = new Vector(-2);
         } catch (IllegalArgumentException ex) {
             System.out.println("Ошибка произошла! Поздравляю! Привет");
