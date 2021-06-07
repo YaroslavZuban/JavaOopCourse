@@ -1,4 +1,4 @@
-package ru.academits.java.zuban.matrix;
+package ru.academits.java.zuban.Matrix;
 
 public class MatrixProgram {
 }
